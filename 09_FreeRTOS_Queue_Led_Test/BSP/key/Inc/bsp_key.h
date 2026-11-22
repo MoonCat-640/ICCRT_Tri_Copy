@@ -30,11 +30,22 @@
 #include<stdint.h>
 #include<stdio.h>
 #include "main.h"
+#include "cmsis_os.h"
+#include "queue.h"
 #include "stm32f4xx_hal_gpio.h"
 #include "stm32f4xx_hal.h"
 /***********************************includes************************************/
 
 /***********************************defines*************************************/
+
+//*************************Thread Func**********************//
+extern osThreadId_t key_TaskHandle;
+extern const osThreadAttr_t key_Task_attributes;
+//*************************Thread Func**********************//
+
+//Queue Handler*********************************************//
+extern QueueHandle_t key_queue;
+//Queue Handler*********************************************//
 
 //函数返回状态枚举
 typedef enum {
@@ -55,8 +66,22 @@ typedef enum {
 
 /***********************************defines*************************************/
 /***********************************declaring***********************************/
+
+/******************************************************************
+* Steps:
+* 1. doing the specific operation
+	 *@brief  Retargets the C library printf  function to the USART.
+	 *@param  void
+	 *@retval None
+ ******************************************************************/
 key_status_t key_scan(key_press_status_t* key_value);
 
+/**
+  * @brief  key thread function for thread to run
+  * @param  void * argument
+  * @retval void
+*/
+void key_Task_func(void* argument);
 /***********************************declaring***********************************/
 
 

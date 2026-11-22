@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F411xE</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\BSP\Inc;..\BSP\Src</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\BSP\key\Inc;..\BSP\key\Src;..\BSP\led\Inc;..\BSP\led\Src</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -577,7 +577,22 @@
             <File>
               <FileName>bsp_key.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\BSP\Src\bsp_key.c</FilePath>
+              <FilePath>..\BSP\key\Src\bsp_key.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BSP\led\Src\bsp_led.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_key.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\BSP\key\Inc\bsp_key.h</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_led.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\BSP\led\Inc\bsp_led.h</FilePath>
             </File>
           </Files>
         </Group>

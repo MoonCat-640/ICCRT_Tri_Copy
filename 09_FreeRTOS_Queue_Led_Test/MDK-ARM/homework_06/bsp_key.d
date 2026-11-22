@@ -1,5 +1,5 @@
-homework_06\bsp_key.o: ..\BSP\Src\bsp_key.c
-homework_06\bsp_key.o: ..\BSP\Inc\bsp_key.h
+homework_06\bsp_key.o: ..\BSP\key\Src\bsp_key.c
+homework_06\bsp_key.o: ..\BSP\key\Inc\bsp_key.h
 homework_06\bsp_key.o: D:\Applications\Keil543\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdint.h
 homework_06\bsp_key.o: D:\Applications\Keil543\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdio.h
 homework_06\bsp_key.o: ../Core/Inc/main.h
@@ -33,3 +33,15 @@ homework_06\bsp_key.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.
 homework_06\bsp_key.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 homework_06\bsp_key.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 homework_06\bsp_key.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+homework_06\bsp_key.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
+homework_06\bsp_key.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+homework_06\bsp_key.o: ../Core/Inc/FreeRTOSConfig.h
+homework_06\bsp_key.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+homework_06\bsp_key.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+homework_06\bsp_key.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+homework_06\bsp_key.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h
+homework_06\bsp_key.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+homework_06\bsp_key.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+homework_06\bsp_key.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+homework_06\bsp_key.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
+homework_06\bsp_key.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h

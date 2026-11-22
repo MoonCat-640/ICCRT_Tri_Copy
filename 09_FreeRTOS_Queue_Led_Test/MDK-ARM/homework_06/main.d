@@ -44,4 +44,5 @@ homework_06\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 homework_06\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 homework_06\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 homework_06\main.o: D:\Applications\Keil543\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdio.h
-homework_06\main.o: ..\BSP\Inc\bsp_key.h
+homework_06\main.o: ..\BSP\key\Inc\bsp_key.h
+homework_06\main.o: ..\BSP\led\Inc\bsp_led.h
