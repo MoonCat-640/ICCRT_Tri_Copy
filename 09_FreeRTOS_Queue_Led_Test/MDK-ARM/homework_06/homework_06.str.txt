@@ -1,0 +1,9 @@
+
+========================================================================
+
+** Object/Image Component Sizes
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+     14044        994        572        160      20672     690390   homework_06/homework_06.axf
+     14044        994        572        160          0          0   ROM Totals for homework_06/homework_06.axf

@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\BSP",
+    "\\BSP\\Inc",
+    "\\BSP\\Src",
+    "\\Core",
+    "\\Core\\Src",
+    "\\Drivers",
+    "\\Drivers\\STM32F4xx_HAL_Driver",
+    "\\Drivers\\STM32F4xx_HAL_Driver\\Inc"
+  ],
+  "PreviewInSolutionExplorer": false
+}
