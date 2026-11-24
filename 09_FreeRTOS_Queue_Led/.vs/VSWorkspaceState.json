@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\BSP",
+    "\\BSP\\key",
+    "\\BSP\\key\\inc",
+    "\\BSP\\key\\src",
+    "\\BSP\\led",
+    "\\BSP\\led\\inc",
+    "\\BSP\\led\\src",
+    "\\Core",
+    "\\Core\\Src"
+  ],
+  "SelectedNode": "\\BSP\\led\\src\\bsp_led.c",
+  "PreviewInSolutionExplorer": false
+}

@@ -33,7 +33,7 @@ osThreadId_t              led_TaskHandle;
 const osThreadAttr_t led_Task_attributes = {
   .name = "led_Task",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
+  .priority = (osPriority_t) osPriorityHigh,
 };
 //*********************Thread_Func **********************//
 
@@ -76,6 +76,15 @@ led_status_t led_on_off(led_operation_t led_operation)
         //1. Make the LED toggle
         HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
     }
+    if (LED_BLINK_3_TIMES == led_operation) 
+    {
+        //1. Make the LED blink 3 times
+        for (int i = 0;i < 6;i++) {
+            HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+            vTaskDelay(300);
+        }
+    }
+    return ret;
 }
 
 
@@ -112,16 +121,20 @@ void led_task_func(void *argument)
 	{
 		// Receive a message on the created queue.  Block for 10 ticks if a
 		// message is not immediately available.
-		if( xQueueReceive( led_queue, &( led_value ), ( TickType_t ) 100 ) )
+		if( pdTRUE == xQueueReceive( led_queue, &( led_value ), ( TickType_t ) 20000 ) )
 		{
 			// pcRxedMessage now points to the struct AMessage variable posted
 			// by vATask.
-            printf("received led_queue value = [%d]" , led_value);
-            led_on_off(led_value);
+            printf("received led_queue value = [%d] at time [%d]\r\n" ,
+                led_value,HAL_GetTick());
+            led_ret = led_on_off(led_value);
+            if (LED_OK == led_ret) {
+                printf("led_on_off successfully at time [%d]\r\n",HAL_GetTick());
+            }
 		}
 	}
     
-    osDelay(100);
+    //osDelay(1000);
   }
   /* USER CODE END 5 */
 }

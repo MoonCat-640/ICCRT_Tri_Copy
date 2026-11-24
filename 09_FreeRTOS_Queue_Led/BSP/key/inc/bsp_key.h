@@ -68,8 +68,10 @@ typedef enum
 
 typedef enum
 {
-  KEY_PRESSED           = 0,           /* Operation completed successfully.  */
-  KEY_NOT_PRESSED       = 1,           /* Run-time error without case matched*/
+  KEY_PRESSED           = 0,			/* Operation completed successfully.  */
+  KEY_NOT_PRESSED       = 1,			/* Run-time error without case matched*/
+  KEY_SHORT_PRESSED		= 2,			/*Operation*/
+  KEY_LONG_PRESSED		= 3,			/*Operation*/
 } key_press_status_t;
 
 //******************************** Defines **********************************//
@@ -87,6 +89,21 @@ typedef enum
  * 
  * */
 key_status_t key_scan      (key_press_status_t * key_value);
+
+/**
+ * @brief this function will check the key between long press and shrot press
+ *
+ * Steps:
+ *  1.doing the specific operations
+ *
+ * @param[in] void
+ *
+ * @return KEY_SHORT_PRESSED : key has been pressed with short time.
+ *			KEY_LONG_PRESSED : key has been pressed with long time.
+ *
+ * */
+key_status_t key_scan_short_long_press(key_press_status_t* key_value,
+										uint32_t short_press_time);
 
 /**
  * @brief key_task_func for thread to run.

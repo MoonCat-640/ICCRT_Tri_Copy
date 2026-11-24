@@ -23,7 +23,7 @@
  * @note 1 tab == 4 spaces!
  * 
  *****************************************************************************/
-
+#include<stdint.h>
 #include "bsp_key.h"
 osThreadId_t key_TaskHandle;
 
@@ -44,30 +44,84 @@ const osThreadAttr_t key_Task_attributes = {
  *  
  * @param[in] void 
  * 
- * @return led_handler_status_t : Status of the function.
- * 
+ * @return KEY_OK : the key has been pressed
+ *         KEY_ERRORTIMEOUT : the key has been released
  * */
 key_status_t key_scan(key_press_status_t * key_value)
 {
-    
-    uint32_t counter = 0;
     key_press_status_t key_status_value = KEY_NOT_PRESSED;
     
-    while (counter < 1000){
-        //2.如果按键（PA0)的电平为低，则说明按键被按下了。
-        //2.1  如果按键被按下，则发送对应的消息队列
-        if(HAL_GPIO_ReadPin(Key_GPIO_Port, Key_Pin) == GPIO_PIN_RESET)
-        {
-            key_status_value = KEY_PRESSED;
-            *key_value = key_status_value;
-            return KEY_OK;
-        }
-        //2.2 如果按键没有被按下
-        counter++;
+    if(HAL_GPIO_ReadPin(Key_GPIO_Port, Key_Pin) == GPIO_PIN_RESET)
+    {
+        key_status_value = KEY_PRESSED;
+        *key_value = key_status_value;
+        return KEY_OK;
     }
+
     *key_value = key_status_value;
     
     return KEY_ERRORTIMEOUT;//始终没有按键被按下，返回超时
+}
+
+/**
+ * @brief key_task_func for thread to run.
+ *
+ * Steps:
+ *  1.doing the specific operations
+ *
+ * @param[in] void
+ *
+ * @return KEY_SHORT_PRESSED : key has been pressed with short time.
+ *			KEY_LONG_PRESSED : key has been pressed with long time.
+ *
+ * */
+key_status_t key_scan_short_long_press(key_press_status_t* key_value,
+    uint32_t short_press_time) {
+    /*variables*/
+    key_status_t ret_key_status = KEY_OK; /*return value*/
+    key_press_status_t key_value_temp = KEY_NOT_PRESSED;/*temporary*/
+    uint32_t counter_tick = 0;/*counter*/
+
+    /*variables*/
+
+    //1. check if the key is pressed
+    ret_key_status = key_scan(&key_value_temp);
+    // TBD : critical section
+    
+    
+    //1.1 if the key is pressed, then detect if it is short pressed
+    if (KEY_OK == ret_key_status) {
+        if (key_value_temp == KEY_PRESSED) {
+            counter_tick = HAL_GetTick();//get the timestamp of the key press
+
+            //1.1.1 check the short press time
+            while (HAL_GetTick() < counter_tick + short_press_time)
+                ;
+            
+            //1.1.2 now could check if th user pressed the key 
+            ret_key_status = key_scan(&key_value_temp);
+
+            if (key_value_temp == KEY_NOT_PRESSED) {
+                //1.1.3 the key is pressed with short press
+                *key_value = KEY_SHORT_PRESSED;
+                return KEY_OK;
+            }
+            else {
+                //1.2 if the key is pressed wit long press
+                *key_value = KEY_LONG_PRESSED;
+
+                //1.2.1 keep focusing on the status of key to avoid the short
+                //press 
+                while (ret_key_status == key_scan(&key_value_temp))
+                    ;
+
+                return KEY_OK;
+            }
+
+        }
+    }
+
+    return ret_key_status;
 }
 
 /**

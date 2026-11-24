@@ -1,7 +1,7 @@
 homework_06\bsp_key.o: ..\BSP\key\src\bsp_key.c
+homework_06\bsp_key.o: D:\Applications\Keil543\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdint.h
 homework_06\bsp_key.o: ..\BSP\key\inc\bsp_key.h
-homework_06\bsp_key.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-homework_06\bsp_key.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+homework_06\bsp_key.o: D:\Applications\Keil543\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdio.h
 homework_06\bsp_key.o: ../Core/Inc/main.h
 homework_06\bsp_key.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 homework_06\bsp_key.o: ../Core/Inc/stm32f4xx_hal_conf.h
@@ -17,7 +17,7 @@ homework_06\bsp_key.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 homework_06\bsp_key.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 homework_06\bsp_key.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 homework_06\bsp_key.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-homework_06\bsp_key.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+homework_06\bsp_key.o: D:\Applications\Keil543\ARM\ARM_Compiler_5.06u7\Bin\..\include\stddef.h
 homework_06\bsp_key.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
 homework_06\bsp_key.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
 homework_06\bsp_key.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h
